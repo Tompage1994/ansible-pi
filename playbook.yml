@@ -4,7 +4,7 @@
 
   hosts: server
   roles:
-    - pi
     - web
+
   remote_user: pi
   become: yes

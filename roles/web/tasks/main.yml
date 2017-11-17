@@ -1,11 +1,24 @@
 ---
-- name: "Install http server"
+- set_fact:
+    real_ansible_host: "{{ ansible_host }}"
+
+- name: 'install apache2'
   apt:
-    - name: httpd
-      status: latest
+    name: apache2
+    state: latest
+
+- name: 'install nodejs'
+  apt:
+    name: nodejs
+    state: latest
+
+- name: 'install mysql'
+  apt:
+    name: mysql-server
+    state: latest
 
 - name: "Start http server"
   service:
-    - name: httpd
-      started: true
-      enabled: true
+    name: apache2
+    state: started
+    enabled: yes
