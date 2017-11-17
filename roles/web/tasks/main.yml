@@ -1,0 +1,11 @@
+---
+- name: "Install http server"
+  apt:
+    - name: httpd
+      status: latest
+
+- name: "Start http server"
+  service:
+    - name: httpd
+      started: true
+      enabled: true
